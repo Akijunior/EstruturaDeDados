@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,7 +18,7 @@ int fib(int alcance) {
     printf("Digite até que termo deseja que o Fibonacci vá: \n");
     scanf("%d", &alcance);
     int cont = 0;
-    while(cont < alcance) {
+    while(cont < (alcance-1)) {
         
         if (a == 0) 
 
@@ -33,5 +32,5 @@ int fib(int alcance) {
         }
         cont += 1;
     }
-    printf("%dº Termo - %d.\n", cont, b);
+    printf("%dº Termo - %d.\n", cont+1, b);
 }
