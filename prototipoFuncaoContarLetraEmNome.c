@@ -1,28 +1,28 @@
+
 #include <stdio.h>
 
-int contaVogais (char s[], char *c) {
-    
-   int numVogais, i, j;
-   numVogais = 0;
-   for (i = 0; s[i] != '\0'; ++i) {
-      char ch = s[i]; 
+int contChar (char word[20], char bus, int i, int cont) {
 
-      for (j = 0; c[j] != '\0'; ++j) {
-         if (c[j] == ch) {
-            numVogais += 1;
-            break;
-         }
-      }
-   }
-   return numVogais;
+    if (word[i] == bus) {
+        cont++;
+    }
+
+    if(word[i] == '\0') {
+        return cont;
+    }
+
+    else {
+        return contChar(word, bus, i+1, cont);
+    }
 }
 
-int main(void) {
-    
-    char s[] = "Aloha", *c = "o";
-    
-    long contador = contaVogais(s, c);
-    printf ("A qtd de vezes que apareceu foi %d.\n",contador);
-    return 0;
-}
+int main() {
 
+    char word[20];
+    char bus;
+    printf("Informe uma palavra:\n ");
+    fgets(word, 255, stdin);
+    printf("Informe o elemento procurado:\n ");
+    scanf("%c", &bus);
+    printf("%d", contChar(word, bus, 0, 0));
+}
