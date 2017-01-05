@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int caracter(char c, char s[]) {
 
@@ -18,14 +19,10 @@ main() {
     printf("Busca string\n\n");
     printf("\nDigite a string: ");
     gets(s);
-    //scanf("%s", s);
-
     fflush(stdin);
     printf("\nDigite o caractere desejado: ");
-    //scanf("%c", &c);
     c = getchar();
     t = caracter(c, s);
     printf("\n\nEncontrei %d vezes.", t);
-    //printf("%d", t);
 
 }
