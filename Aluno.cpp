@@ -1,4 +1,9 @@
 
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
+
 struct aluno {
 
     int mat;
@@ -9,17 +14,20 @@ struct aluno {
 typedef struct aluno Aluno;
 
 main() {
-    Aluno vet_aluno[20];
+    Aluno vet[20];
     int i = 0;
 
     while (i<=2) {
-        printf("DIgite a matricula: ");
+    	
+        printf("Digite a matricula: ");
         scanf("%d", &vet[i].mat);
-        printf("DIgite a nota: ");
+        fflush(stdin);
+        printf("Digite a nota: ");
         scanf("%f", &vet[i].nota);
         fflush(stdin);
         printf("Digite o nome: ");
         scanf("%s", &vet[i].nome);
+        fflush(stdin);
         i += 1;
     }
 }
