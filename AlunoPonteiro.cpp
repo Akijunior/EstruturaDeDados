@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -68,37 +67,49 @@ class Lista{
 			return quant;
 		}
 
+
+
+
 		Aluno *maisvelho(){
 
-            int maiorIdade = l[0] -> getIdade();
             Aluno *AlunoMaisVelho;
-
+			int cont, Idade;
+			string Matricula, Nome;
+			
             for(int i = 1; i < quant - 1; i++) {
 
                 if (l[i]-> getIdade() > l[i+1]-> getIdade()) {
-                    maiorIdade = l[i] -> getIdade();
+
+                    int cont = i;
+                    AlunoMaisVelho = l[cont];
+                    Idade = l[cont] -> getIdade();
+                    Matricula = l[cont] -> getMat();
+                    Nome = l[cont] -> getNome();
                 }
-                else if (l[i] < l[i+1]) {
-                    maiorIdade = l[i+1] -> getIdade();
+                else if (l[i]-> getIdade() < l[i+1]-> getIdade()) {
+
+                    int cont = i + 1;
+                    Idade = l[cont] -> getIdade();
+                    Matricula = l[cont] -> getMat();
+                    Nome = l[cont] -> getNome();
                 }
             }
-            for(int j = 0; j < quant - 1; j++) {
-
-                if (l[j]-> getIdade() == maiorIdade) {
-                    AlunoMaisVelho = l[j];
-                    break;
-                }
-		};
+            
+            cout << "\n\nMaior idade: " << Idade << ".\n" << "Aluno: " << Nome << ".\n" << "Matricula: " << Matricula << ".\n" << endl;
+            
             return AlunoMaisVelho;
+		};          
 };
 
-};
+
+
+
 int main(){
 
 	int op;
-	Lista * turma = new Lista();
+	Lista *turma = new Lista();
 
-	cout << "Quantidade: " << turma -> getQuant();
+	cout << "\nQuantidade: " << turma -> getQuant() << "\n";
 
 	turma -> inserir(1,"Fabio", 15);
 	turma -> inserir(2,"Joana", 17);
@@ -107,12 +118,7 @@ int main(){
 
 	cout << "\nQuantidade de alunos: " << turma -> getQuant();
 	
-
 	Aluno *velho = turma -> maisvelho();
-
-    cout << "\n\nMais velho: " << velho -> getNome() << "\nIdade: " << velho -> getIdade() ;
 
     return 0;
 }
-
-
