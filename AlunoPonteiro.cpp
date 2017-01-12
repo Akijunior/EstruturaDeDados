@@ -72,37 +72,19 @@ class Lista{
 
 		Aluno *maisvelho(){
 
-            Aluno *AlunoMaisVelho;
-			int cont, Idade;
-			string Matricula, Nome;
-			
-            for(int i = 1; i < quant - 1; i++) {
-
-                if (l[i]-> getIdade() > l[i+1]-> getIdade()) {
-
-                    int cont = i;
-                    AlunoMaisVelho = l[cont];
-                    Idade = l[cont] -> getIdade();
-                    Matricula = l[cont] -> getMat();
-                    Nome = l[cont] -> getNome();
-                }
-                else if (l[i]-> getIdade() < l[i+1]-> getIdade()) {
-
-                    int cont = i + 1;
-                    Idade = l[cont] -> getIdade();
-                    Matricula = l[cont] -> getMat();
-                    Nome = l[cont] -> getNome();
-                }
-            }
+            int maior = l[0] -> getIdade();
+            Aluno *mv = l[0];
             
-            cout << "\n\nMaior idade: " << Idade << ".\n" << "Aluno: " << Nome << ".\n" << "Matricula: " << Matricula << ".\n" << endl;
-            
-            return AlunoMaisVelho;
-		};          
+			for(int i = 1; i < quant; i++){
+				
+				if (l[i] -> getIdade() > mv -> getIdade()){
+
+					mv = l[i];
+				} 
+			}
+			return mv;
+}
 };
-
-
-
 
 int main(){
 
@@ -119,6 +101,8 @@ int main(){
 	cout << "\nQuantidade de alunos: " << turma -> getQuant();
 	
 	Aluno *velho = turma -> maisvelho();
+	
+	cout << "\n\nMaior idade: " << velho -> getIdade() << ".\n" << "Aluno: " << velho -> getNome() << ".\n" << "Matricula: " << velho -> getMat() << ".\n" << endl;
 
     return 0;
-}
+	}
